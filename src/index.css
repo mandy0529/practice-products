@@ -1,1 +1,7 @@
 @import 'styles/reset.css';
+
+.nav-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
