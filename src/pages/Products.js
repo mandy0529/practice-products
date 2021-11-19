@@ -11,7 +11,7 @@ const Products = () => {
   return (
     <>
       <PageHero />
-      <Wrapper className="page">
+      <Wrapper>
         <div className="section-center products">
           <ProductsFillter />
           <div>
@@ -25,7 +25,10 @@ const Products = () => {
 };
 
 const Wrapper = styled.div`
-  margin-left: 5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
   .products {
     display: grid;
     gap: 3rem 1.5rem;

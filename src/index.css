@@ -1,7 +1,10 @@
 @import 'styles/reset.css';
 
-.nav-center {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+.section {
+  padding: 5rem 0;
+}
+.section-center {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
 }

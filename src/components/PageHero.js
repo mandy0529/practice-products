@@ -14,11 +14,16 @@ const PageHero = () => {
 
 const Wrapper = styled.div`
   background: #eaded7;
-  height: 10rem;
+  width: 100%;
+  min-height: 20vh;
   display: flex;
   align-items: center;
-  padding: 0 10rem;
   font-weight: bold;
   font-size: 2rem;
+  h3 {
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 1170px;
+  }
 `;
 export default PageHero;

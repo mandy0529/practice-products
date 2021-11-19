@@ -2,17 +2,21 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {navLinks} from '../utils/helpers';
+import {FaBars} from 'react-icons/fa';
+import {useGlobalContext} from '../contexts/AppContext';
 
 const Navbar = () => {
+  const {showSidebar} = useGlobalContext();
+
   return (
-    <Wrapper className="nav-center">
+    <Wrapper>
       <div className="nav-title">
         <Link to="/">
           <img src="assets/logo.svg" alt="logo" className="nav-logo" />
         </Link>
-        <div className="nav-toggle">
-          <i className="fas fa-bars"></i>
-        </div>
+      </div>
+      <div className="nav-toggle">
+        <FaBars onClick={showSidebar} />
       </div>
 
       <ul className="nav-links">
@@ -29,9 +33,12 @@ const Navbar = () => {
   );
 };
 const Wrapper = styled.nav`
-  /* background: #f5f5f5; */
   font-size: 1rem;
   padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fafbfc;
 
   .nav-logo {
     width: 200px;
@@ -51,23 +58,22 @@ const Wrapper = styled.nav`
   .nav-link:hover {
     border-bottom: 3px solid #ab7b60;
   }
-
+  .nav-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .nav-toggle {
-    transition: all 0.3s linear;
-    cursor: pointer;
     display: none;
+    transition: all 0.3s ease-in;
   }
   .nav-toggle:hover {
     color: #ab7b60;
     transform: scale(1.1);
   }
   @media screen and (max-width: 991px) {
-    .nav-title {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: space-between;
-    }
+    justify-content: space-between;
+    padding: 0.5rem 4rem;
     .nav-links,
     .nav-icons {
       display: none;
