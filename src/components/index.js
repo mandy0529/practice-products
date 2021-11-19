@@ -6,6 +6,7 @@ import ProductsList from './products/ProductsList';
 import ListView from './products/ListView';
 import GridView from './products/GridView';
 import Product from './products/Product';
+import AddToCart from './cart/AddToCart';
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   ListView,
   GridView,
   Product,
+  AddToCart,
 };

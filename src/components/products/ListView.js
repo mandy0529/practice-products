@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import {formatPrice} from '../../utils/helpers';
 
 const ListView = ({products}) => {
-  console.log(products);
   return (
     <Wrapper>
       {products.map((item) => {

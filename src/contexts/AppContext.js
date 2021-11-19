@@ -4,9 +4,12 @@ import AppReducer, {initialState} from '../reducers/AppReducer';
 import {
   ERROR,
   GET_DATA,
+  GET_SINGLE_PRODUCT,
   HIDE_SIDEBAR,
   SET_LOADING,
   SHOW_SIDEBAR,
+  SINGLE_PRODUCT_ERROR,
+  SINGLE_PRODUCT_LOADING,
 } from '../utils/action';
 import {products_url} from '../utils/helpers';
 
@@ -33,12 +36,24 @@ const AppProvider = ({children}) => {
     }
   };
 
+  const getSingleData = async (url) => {
+    dispatch({type: SINGLE_PRODUCT_LOADING});
+    try {
+      const {data} = await axios.get(url);
+      dispatch({type: GET_SINGLE_PRODUCT, payload: data});
+    } catch (error) {
+      dispatch({type: SINGLE_PRODUCT_ERROR});
+    }
+  };
+
   useEffect(() => {
     getData(products_url);
   }, []);
 
   return (
-    <AppContext.Provider value={{...state, showSidebar, hideSidebar}}>
+    <AppContext.Provider
+      value={{...state, showSidebar, hideSidebar, getSingleData}}
+    >
       {children}
     </AppContext.Provider>
   );
